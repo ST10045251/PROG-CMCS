@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Claim Submission";
+}
+<br />
+<h2>Submit Your Claim</h2>
+
+<form>
+    <div class="form-group">
+        <label for="hoursWorked">Hours Worked</label>
+        <input type="number" class="form-control" id="hoursWorked" placeholder="Enter hours worked">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="hourlyRate">Hourly Rate</label>
+        <input type="number" class="form-control" id="hourlyRate" placeholder="Enter hourly rate">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea class="form-control" id="notes" placeholder="Enter any additional notes"></textarea>
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="documentUpload">Upload Supporting Document</label>
+        <input type="file" class="form-control-file" id="documentUpload">
+    </div> <br />
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+</form>
