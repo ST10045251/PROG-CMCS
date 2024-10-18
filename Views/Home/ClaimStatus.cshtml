@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Claim status tracking";
+    ViewData["Title"] = "Claim Status Tracking";
 }
 <br />
 <h2>Track Your Claims</h2>
@@ -10,19 +10,30 @@
             <th>Claim ID</th>
             <th>Hours Worked</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>954</td>
-            <td>13</td>
-            <td>Approved</td>
-        </tr>
-        <tr>
-            <td>955</td>
-            <td>15</td>
-            <td>Pending</td>
-
-        </tr>
+        @foreach (var claim in Model) 
+        {
+            <tr>
+                <td>@claim.ClaimID</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.Status</td>
+                <td>
+                    @if (claim.Status == "Pending")
+                    {
+                        <form action="@Url.Action("ApproveClaim", "Claims")" method="post" style="display:inline;">
+                            <input type="hidden" name="claimId" value="@claim.ClaimID" />
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+                        <form action="@Url.Action("RejectClaim", "Claims")" method="post" style="display:inline;">
+                            <input type="hidden" name="claimId" value="@claim.ClaimID" />
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ST10045251_PROTOTYPE</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ST10045251_PROTOTYPE.styles.css" asp-append-version="true" />
@@ -15,6 +16,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="/Home/Lecturer">Lecturer Portal</a>
                     </li>
                     <li class="nav-item">
@@ -22,6 +24,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Home/ClaimStatus">Claim Status</a>
+                    </li>
+                        <a class="nav-link" asp-controller="Home" asp-action="Login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -39,6 +43,7 @@
             &copy; 2024 - ST10045251_PROTOTYPE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

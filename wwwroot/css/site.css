@@ -1,142 +1,91 @@
-:root {
-    --dark-blue: #2C3E50;
-    --mint-green: #1ABC9C;
-    --coral-red: #E74C3C;
-    --light-gray: #ECF0F1;
-    --charcoal-gray: #2D3436;
-    --silver-gray: #BDC3C7;
-}
-
 body {
-    background-color: var(--light-gray);
-    font-family: Arial, sans-serif;
-    color: var(--charcoal-gray);
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
-ul {
-    list-style-type: circle;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
-    color: cornflowerblue;
-    font-family: 'Times New Roman', Times, serif;
+    color: #444;
 }
 
-p1 {
-    color: black;
-}
-p {
-    text-align: center;
-    font-size: 1.1em;
-    margin-bottom: 30px;
-}
-
-h2, h3, h4, h5, h6 {
-    color: var(--dark-blue);
+.login-container {
+    width: 400px; 
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); 
 }
 
-.navbar {
-    background-color: var(--dark-blue);
-    padding: 10px;
-}
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        padding: 10px;
+    .login-container h2 {
+        margin-bottom: 20px;
+        color: #444;
     }
 
-        .navbar a:hover {
-            color: var(--mint-green);
-        }
+.input-group {
+    margin-bottom: 20px; 
+}
+
+    .input-group label {
+        display: block;
+        font-weight: bold;
+        color: #666;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="password"],
+    .input-group input[type="email"] {
+        width: 100%;
+        padding: 12px; 
+        margin-top: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        transition: border-color 0.3s; 
+    }
+
+    .input-group input:focus {
+        border-color: #007bff;
+        outline: none; 
+    }
 
 .btn-primary {
-    background-color: var(--mint-green);
-    color: #ffffff;
+    width: 100%;
+    padding: 12px; 
+    background-color: #007bff;
     border: none;
-    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s; 
 }
 
     .btn-primary:hover {
-        background-color: #16a085;
+        background-color: #0056b3;
     }
 
-.btn-danger {
-    background-color: var(--coral-red);
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
 
-    .btn-danger:hover {
-        background-color: #c0392b;
-    }
-
-input[type="text"], input[type="number"], input[type="file"], textarea {
-    background-color: #ffffff;
-    border: 1px solid var(--silver-gray);
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-    input[type="text"]:focus, input[type="number"]:focus, input[type="file"]:focus, textarea:focus {
-        border-color: var(--mint-green);
-        outline: none;
-    }
-
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #ffffff;
-}
-
-    .table th {
-        background-color: var(--dark-blue);
-        color: #ffffff;
-        padding: 10px;
-    }
-
-    .table td {
-        border: 1px solid var(--silver-gray);
-        padding: 10px;
-    }
-
-    .table tr:nth-child(even) {
-        background-color: var(--light-gray);
-    }
-
-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid var(--silver-gray);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-footer {
-    background-color: var(--dark-blue);
-    color: #ffffff;
+.link-container {
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin-top: 15px;
 }
 
-    footer a {
-        color: var(--mint-green);
+    .link-container a {
+        color: #007bff;
         text-decoration: none;
+        transition: color 0.3s;
     }
 
-        footer a:hover {
-            color: var(--coral-red);
+        .link-container a:hover {
+            color: #0056b3;
         }

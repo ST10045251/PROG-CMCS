@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<h1>Access Denied</h1>
+<p>You do not have permission to access this page.</p>
+@if (ViewData["ReturnUrl"] != null)
+{
+    <p><a href="@ViewData["ReturnUrl"]">Return to previous page</a></p>
+}

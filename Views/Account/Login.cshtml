@@ -1,0 +1,29 @@
+﻿@model ST10045251_PROTOTYPE.Models.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form asp-action="Login" method="post">
+        <div class="input-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" placeholder="Enter your password" required />
+        </div>
+        <div class="input-group remember-me">
+            <label asp-for="RememberMe">
+                <input asp-for="RememberMe" type="checkbox" />
+                Remember Me
+            </label>
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+    <div class="link-container">
+        <a href="/Account/ForgotPassword">Forgot Password?</a>
+    </div>
+</div>
