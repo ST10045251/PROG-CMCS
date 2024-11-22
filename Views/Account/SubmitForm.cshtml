@@ -1,0 +1,21 @@
+﻿@model ST10045251_PROTOTYPE.Models.Claim
+
+<form asp-action="Submit" method="post">
+    <div>
+        <label for="claimantName">Claimant Name:</label>
+        <input id="claimantName" name="ClaimantName" type="text" required />
+    </div>
+    <div>
+        <label for="hoursWorked">Hours Worked:</label>
+        <input id="hoursWorked" name="HoursWorked" type="number" required />
+    </div>
+    <div>
+        <label for="hourlyRate">Hourly Rate:</label>
+        <input id="hourlyRate" name="HourlyRate" type="number" step="0.01" required />
+    </div>
+    <div>
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="Notes"></textarea>
+    </div>
+    <button type="submit">Submit Claim</button>
+</form>
