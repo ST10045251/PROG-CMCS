@@ -9,17 +9,14 @@ namespace CMCSPrototype.Controllers
 
             return View("Index");
         }
-
         public IActionResult Lecturer()
         {
             return View();
         }
-
         public IActionResult Manager()
         {
             return View();
         }
-
         public IActionResult ClaimStatus()
         {
             return View();
