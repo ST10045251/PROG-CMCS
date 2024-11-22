@@ -2,8 +2,8 @@
 
 <form asp-action="Submit" method="post">
     <div>
-        <label for="claimantName">Claimant Name:</label>
-        <input id="claimantName" name="ClaimantName" type="text" required />
+        <label for="claimantName">Client Name:</label>
+        <input id="claimantName" name="ClientName" type="text" required />
     </div>
     <div>
         <label for="hoursWorked">Hours Worked:</label>
@@ -14,6 +14,7 @@
         <input id="hourlyRate" name="HourlyRate" type="number" step="0.01" required />
     </div>
     <div>
+        <br />
         <label for="notes">Notes:</label>
         <textarea id="notes" name="Notes"></textarea>
     </div>
