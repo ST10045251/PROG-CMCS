@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ST10045251_PROTOTYPE.Models;
-using ST10045251_PROTOTYPE.Services;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ST10045251_PROTOTYPE.Controllers
 {
@@ -80,7 +75,7 @@ namespace ST10045251_PROTOTYPE.Controllers
                 claim.Status = "Pending";
                 claim.SubmissionDate = DateTime.UtcNow;
 
-                _context.Claims.Add(claim); 
+                _context.Claims.Add(claim);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("SubmissionConf", new { id = claim.ClaimId });
