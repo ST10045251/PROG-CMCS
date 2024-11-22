@@ -14,26 +14,33 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var claim in Model) 
+        @if (Model != null && Model.Any())
         {
-            <tr>
-                <td>@claim.ClaimID</td>
-                <td>@claim.HoursWorked</td>
-                <td>@claim.Status</td>
-                <td>
-                    @if (claim.Status == "Pending")
-                    {
-                        <form action="@Url.Action("ApproveClaim", "Claims")" method="post" style="display:inline;">
-                            <input type="hidden" name="claimId" value="@claim.ClaimID" />
-                            <button type="submit" class="btn btn-success">Approve</button>
-                        </form>
-                        <form action="@Url.Action("RejectClaim", "Claims")" method="post" style="display:inline;">
-                            <input type="hidden" name="claimId" value="@claim.ClaimID" />
-                            <button type="submit" class="btn btn-danger">Reject</button>
-                        </form>
-                    }
-                </td>
-            </tr>
+            @foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.ClaimID</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.Status</td>
+                    <td>
+                        @if (claim.Status == "Pending")
+                        {
+                            <form action="@Url.Action("ApproveClaim", "Claims")" method="post" style="display:inline;">
+                                <input type="hidden" name="claimId" value="@claim.ClaimID" />
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </form>
+                            <form action="@Url.Action("RejectClaim", "Claims")" method="post" style="display:inline;">
+                                <input type="hidden" name="claimId" value="@claim.ClaimID" />
+                                <button type="submit" class="btn btn-danger">Reject</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="4">No claims available.</td></tr>
         }
     </tbody>
 </table>

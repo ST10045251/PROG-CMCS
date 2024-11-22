@@ -16,7 +16,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <li class="nav-item">
                         <a class="nav-link" href="/Home/Lecturer">Lecturer Portal</a>
                     </li>
                     <li class="nav-item">
@@ -25,6 +24,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/Home/ClaimStatus">Claim Status</a>
                     </li>
+                    <!-- New link for Claim Submission -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="ClaimStatus" asp-action="Submit">Submit Claim</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Login">Login</a>
                     </li>
                 </ul>

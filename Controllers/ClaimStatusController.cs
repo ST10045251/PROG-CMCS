@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ST10045251_PROTOTYPE.Models;
+using ST10045251_PROTOTYPE.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,14 +19,23 @@ namespace ST10045251_PROTOTYPE.Controllers
             _context = context;
         }
 
-        // View Pending Claims
+        public IActionResult ClaimStatus()
+        {
+            var claims = new List<Claim>
+        {
+            new Claim { ClaimId = 1, HoursWorked = 8, Status = "Pending" },
+            new Claim { ClaimId = 2, HoursWorked = 10, Status = "Approved" }
+        };
+
+            return View(claims);
+        }
+
         public IActionResult PendingClaims()
         {
             var pendingClaims = _context.Claims.Where(c => c.Status == "Pending").ToList();
             return View(pendingClaims);
         }
 
-        // Approve a Claim
         [HttpPost]
         public async Task<IActionResult> Approve(int claimId)
         {
@@ -40,7 +50,6 @@ namespace ST10045251_PROTOTYPE.Controllers
             return RedirectToAction("PendingClaims");
         }
 
-        // Reject a Claim
         [HttpPost]
         public async Task<IActionResult> Reject(int claimId)
         {
@@ -55,34 +64,32 @@ namespace ST10045251_PROTOTYPE.Controllers
             return RedirectToAction("PendingClaims");
         }
 
-        // Display the Claim Submission Form
+        [AllowAnonymous]
         public IActionResult Submit()
         {
-            return View();
+            return View("~/Views/Account/SubmitForm.cshtml");
         }
 
-        // Handle Claim Submission
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Submit(Claim claim)
         {
             if (ModelState.IsValid)
             {
-                // Automate the calculation of the claim amount
                 claim.Amount = claim.HoursWorked * claim.HourlyRate;
-                claim.Status = "Pending"; // Default status
+                claim.Status = "Pending";
                 claim.SubmissionDate = DateTime.UtcNow;
 
-                _context.Claims.Add(claim); // Save the claim to the database
+                _context.Claims.Add(claim); 
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("SubmissionConfirmation", new { id = claim.ClaimId });
+                return RedirectToAction("SubmissionConf", new { id = claim.ClaimId });
             }
 
-            return View(claim); // Return to the form if validation fails
+            return View(claim);
         }
 
-        // Display Confirmation Page after Submission
-        public async Task<IActionResult> SubmissionConfirmation(int id)
+        public async Task<IActionResult> SubmissionConf(int id)
         {
             var claim = await _context.Claims.FindAsync(id);
             if (claim == null)
@@ -90,7 +97,7 @@ namespace ST10045251_PROTOTYPE.Controllers
                 return NotFound();
             }
 
-            return View(claim); // Show confirmation details
+            return View(claim);
         }
     }
 }
