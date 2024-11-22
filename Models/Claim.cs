@@ -8,7 +8,7 @@
         public string Status { get; set; }
         public int HoursWorked { get; set; }
         public decimal HourlyRate { get; set; }
-        public DateTime SubmissionDate { get; set; }
+        public DateTime SubissionDate { get; set; }
         public string Notes { get; set; }
     }
 }
